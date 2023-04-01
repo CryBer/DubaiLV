@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@bold&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-body{
+body {
   margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header {
-  background-color: black;
+  background-color: #F0F0F0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 20px; */
-  font-family: 'Helvetica Neue', sans-serif;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .logo {
-  width: 90px;
-  height: 90px;
-  background-image: url(../DUBAILV.png);
+  width: 70px;
+  height: 70px;
+  background-image: url('link');
   background-size: cover;
   margin-right: 20px;
 }
 
 .nav-item {
-  color: white;
+  color: black;
   text-decoration: none;
   padding: 10px 20px;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 5px;
   transition: all 0.3s ease;
   margin: 0 10px;
@@ -33,14 +35,39 @@ header {
 }
 
 .nav-item:hover {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   cursor: pointer;
 }
 
 nav {
   display: flex;
   justify-content: center;
+}
+
+main {
+  background-color: #F0F0F0;
+  height: calc(100vh - 210px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-text {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 767px) {
@@ -53,9 +80,14 @@ nav {
     margin-bottom: 20px;
   }
 }
-main {
-  padding: 50px;
-  text-align: center;
+footer {
+  background-color: #E9EBEE;
+  padding: 20px 0;
 }
 
+footer p {
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+}
 
