@@ -29,7 +29,7 @@ header {
   padding: 10px 20px;
   border: 1px solid black;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.9s ease;
   margin: 0 10px;
   font-weight: bold;
 }
@@ -90,4 +90,54 @@ footer p {
   text-align: center;
   color: #555;
 }
+nav .active {
+  background-color: black;
+  color: white;
+}
+.contact-form {
+  margin: 30px auto;
+  width: 50%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
+}
 
+table {
+  margin: 0 auto;
+  width: 100%;
+}
+
+tr {
+  margin-bottom: 20px;
+}
+
+td:first-child {
+  width: 30%;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
