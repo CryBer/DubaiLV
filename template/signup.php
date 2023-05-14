@@ -1,12 +1,16 @@
-<form action="signup_process.php" method="post">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username"><br>
+<?php
+// Handle signup form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Retrieve form data
+  $username = $_POST['signup-username'];
+  $password = $_POST['signup-password'];
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email"><br>
+  // Validate and process the signup (add your own validation and database logic here)
+  // ...
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password"><br>
-
-  <input type="submit" value="Signup">
-</form>
+  // Redirect to a new page or display a success message
+  header('Location: success.html');
+  exit();
+}
+?>
+        

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Order</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <nav>
+      <a class="nav-item" href="main.html">Home</a>
+      <a class="nav-item" href="about.html">About</a>
+      <a class="nav-item active" href="order.html">Order</a>
+      <a class="nav-item" href="contact.html">Contact</a>
+      <a class="nav-item" href="faq.html">FAQ</a>
+      <a class="nav-item" id="loginBtn" href="#">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="car-list">
+      <!-- Cars will be dynamically populated here -->
+    </div>
+  </main>
+
+  <!-- Car details modal -->
+  <div id="carDetailsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="car-details"></div>
+    </div>
+  </div>
+
+  <!-- Login/signup modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- Login/signup form -->
+    </div>
+  </div>
+</body>
+</html>

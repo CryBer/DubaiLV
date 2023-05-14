@@ -141,3 +141,117 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #555;
 }
+
+/* Styles for the car list */
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.car-item {
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.car-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Styles for the car details modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 80%;
+  max-width: 800px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styles for the login/signup modal */
+#loginModal, #signupModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#loginModal .modal-content, #signupModal .modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+#loginModal h2, #signupModal h2 {
+  margin-top: 0;
+}
+
+#loginModal label, #signupModal label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#loginModal input, #signupModal input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#loginModal .btn, #signupModal .btn {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#loginModal p, #signupModal p {
+  margin-top: 10px;
+}
+
+#loginModal p a, #signupModal p a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
