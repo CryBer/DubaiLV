@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Order</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="../stylesheet/main.css">
   <script src="main.js"></script>
 </head>
 <body>
@@ -20,25 +20,174 @@
   </header>
 
   <main>
+    <!-- car lists -->
     <div class="car-list">
-      <!-- Cars will be dynamically populated here -->
+      <div class="car-item">
+        <img src="../template/images/Lada_(7906720346).jpg" alt="Car Image">
+        <h2>Lada turbo pushka</h2>
+        <p>This car will make you cry</p>
+        <button class="order-btn">View Details</button>
+      </div>
     </div>
+    
+    <div class="car-list">
+      <div class="car-item">
+        <img src="../template/images/Lada_(7906720346).jpg" alt="Car Image">
+        <h2>Lada turbo pushka</h2>
+        <p>This car will make you cry</p>
+        <button class="order-btn">View Details</button>
+      </div>
+    </div>
+    
+    <div class="car-list">
+      <div class="car-item">
+        <img src="../template/images/Lada_(7906720346).jpg" alt="Car Image">
+        <h2>Lada turbo pushka</h2>
+        <p>This car will make you cry</p>
+        <button class="order-btn">View Details</button>
+      </div>
+    </div>
+    
+    <div class="car-list">
+      <div class="car-item">
+        <img src="../template/images/Lada_(7906720346).jpg" alt="Car Image">
+        <h2>Lada turbo pushka</h2>
+        <p>This car will make you cry</p>
+        <button class="order-btn">View Details</button>
+      </div>
+    </div>
+    
+    <div class="car-list">
+      <div class="car-item">
+        <img src="../template/images/Lada_(7906720346).jpg" alt="Car Image">
+        <h2>Lada turbo pushka</h2>
+        <p>This car will make you cry</p>
+        <button class="order-btn">View Details</button>
+      </div>
+    </div>
+    
+    <div class="car-list">
+      <div class="car-item">
+        <img src="../template/images/Lada_(7906720346).jpg" alt="Car Image">
+        <h2>Lada turbo pushka</h2>
+        <p>This car will make you cry</p>
+        <button class="order-btn">View Details</button>
+      </div>
+    </div>
+
+    
+       
   </main>
 
   <!-- Car details modal -->
   <div id="carDetailsModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <div class="car-details"></div>
+      <div class="car-details">
+        <h2>Car Make Model</h2>
+        <p>Car description goes here.</p>
+        <!-- Add more details here if needed -->
+        <button class="order-btn">Buy Now</button>
+      </div>
     </div>
   </div>
+  
 
-  <!-- Login/signup modal -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <!-- Login/signup form -->
+      <h2>Login/Signup</h2>
+      <form id="loginForm" action="login.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+        <p>Don't have an account? <a href="#signupModal" id="signupLink">Sign up</a></p>
+      </form>
     </div>
   </div>
+  
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signupForm" action="signup.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Sign Up">
+        <p>Already have an account? <a href="#loginModal" id="loginLink">Login</a></p>
+      </form>
+    </div>
+  </div>
+  
+
+  <script>
+    // Open the car details modal when clicking the "View Details" button
+    var carItems = document.getElementsByClassName('car-item');
+    var modal = document.getElementById('carDetailsModal');
+    var closeButton = document.getElementsByClassName('close')[0];
+  
+    for (var i = 0; i < carItems.length; i++) {
+      carItems[i].querySelector('.order-btn').addEventListener('click', function() {
+        modal.style.display = 'block';
+      });
+    }
+  
+    // Close the car details modal when clicking the close button
+    closeButton.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  
+    // Open the login modal when clicking the "Login" button
+    var loginButton = document.getElementById('loginBtn');
+    var loginModal = document.getElementById('loginModal');
+    var loginCloseButton = loginModal.getElementsByClassName('close')[0];
+  
+    loginButton.addEventListener('click', function() {
+      loginModal.style.display = 'block';
+    });
+  
+    // Close the login modal when clicking the close button
+    loginCloseButton.addEventListener('click', function() {
+      loginModal.style.display = 'none';
+    });
+  
+    // Switch between login and signup forms
+    var signupLink = document.getElementById('signupLink');
+    var signupModal = document.getElementById('signupModal');
+    var loginLink = document.getElementById('loginLink');
+    var signupCloseButton = signupModal.getElementsByClassName('close')[0];
+  
+    signupLink.addEventListener('click', function() {
+      loginModal.style.display = 'none';
+      signupModal.style.display = 'block';
+    });
+  
+    loginLink.addEventListener('click', function() {
+      signupModal.style.display = 'none';
+      loginModal.style.display = 'block';
+    });
+  
+    // Close the signup modal when clicking the close button
+    signupCloseButton.addEventListener('click', function() {
+      signupModal.style.display = 'none';
+    });
+  
+    // Close modals when clicking outside of them
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      } else if (event.target == loginModal) {
+        loginModal.style.display = 'none';
+      } else if (event.target == signupModal) {
+        signupModal.style.display = 'none';
+      }
+    });
+  </script>
+
+  
 </body>
 </html>

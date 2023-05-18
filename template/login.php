@@ -11,7 +11,7 @@ if (isset($_SESSION['username'])) {
 
 // Check if the login form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Check if the submitted username and password are correct
+    // Get the submitted username and password
     $submittedUsername = $_POST['username'];
     $submittedPassword = $_POST['password'];
 
@@ -19,27 +19,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Replace the following code with your own database validation logic
 
     $servername = "localhost";
-    $username = "your_username";
-    $password = "your_password";
-    $dbname = "car_orders";
+    $username = "admin";
+    $password = "admin";
+    $dbname = "myappdb";
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+      die("Connection failed: " . mysqli_connect_error());
+  } else {
+      echo "Connected successfully!";
+  }
+  
 
-    $sql = "SELECT * FROM users WHERE username = '$submittedUsername' AND password = '$submittedPassword'";
-    $result = mysqli_query($conn, $sql);
+    // Check if the username and password match in the database
+    $checkUserQuery = "SELECT * FROM users WHERE username = '$submittedUsername' AND password = '$submittedPassword'";
+    $checkUserResult = mysqli_query($conn, $checkUserQuery);
 
-    if (mysqli_num_rows($result) === 1) {
+    if (mysqli_num_rows($checkUserResult) === 1) {
         // Username and password are correct
-        // Set the session variable and redirect the user to the success page
+        // Set the session variable and redirect to the success page
         $_SESSION['username'] = $submittedUsername;
         header("Location: success.html");
         exit();
     } else {
         // Username or password is incorrect
         $errorMessage = "Invalid username or password.";
+    }
+
+    mysqli_close($conn);
+}
+
+// Check if the signup form was submitted
+if (isset($_POST['signup'])) {
+    // Get the submitted username and password
+    $submittedUsername = $_POST['username'];
+    $submittedPassword = $_POST['password'];
+
+    // Perform the validation against your database
+    // Replace the following code with your own database validation logic
+
+    $servername = "localhost";
+    $username = "admin";
+    $password = "admin";
+    $dbname = "myappdb";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Check if the username already exists in the database
+    $checkUsernameQuery = "SELECT * FROM users WHERE username = '$submittedUsername'";
+    $checkUsernameResult = mysqli_query($conn, $checkUsernameQuery);
+
+    if (mysqli_num_rows($checkUsernameResult) > 0) {
+        // Username already exists
+        $errorMessage = "Username already taken. Please choose a different username.";
+    } else {
+        // Username is available, insert new user into the database
+        $insertUserQuery = "INSERT INTO users (username, password) VALUES ('$submittedUsername', '$submittedPassword')";
+        if (mysqli_query($conn, $insertUserQuery)) {
+            // User successfully registered
+            $_SESSION['username'] = $submittedUsername;
+            header("Location: success.html");
+            exit();
+        } else {
+            // Error occurred while inserting user
+            $errorMessage = "Error: " . mysqli_error($conn);
+        }
     }
 
     mysqli_close($conn);
@@ -78,6 +124,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <button type="submit">Login</button>
+      </form>
+    </div>
+    <div class="signup-container">
+      <h2>Sign Up</h2>
+      <?php if (isset($signupErrorMessage)) : ?>
+        <p class="error-message"><?php echo $signupErrorMessage; ?></p>
+      <?php endif; ?>
+      <form method="POST" action="login.php">
+        <label for="signup-username">Username:</label>
+        <input type="text" id="signup-username" name="username" required>
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" name="password" required>
+        <button type="submit" name="signup">Sign Up</button>
       </form>
     </div>
   </main>

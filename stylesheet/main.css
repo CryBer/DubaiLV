@@ -144,9 +144,13 @@ input[type="submit"]:hover {
 
 /* Styles for the car list */
 .car-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: flex-start;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .car-item {
@@ -254,4 +258,168 @@ input[type="submit"]:hover {
   color: #4CAF50;
   text-decoration: none;
 }
+
+
+/* Styles for the car list */
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  height: 100%;
+}
+
+
+.car-item {
+  width: 250px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.car-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.car-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.car-item h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.car-item p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.car-item .order-btn {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.car-item .order-btn:hover {
+  background-color: #45A049;
+}
+
+
+/* Styles for the car details modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Styles for the login/signup modal */
+#loginModal,
+#signupModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#loginModal .modal-content,
+#signupModal .modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+#loginModal h2,
+#signupModal h2 {
+  margin-top: 0;
+}
+
+#loginModal label,
+#signupModal label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#loginModal input,
+#signupModal input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#loginModal .btn,
+#signupModal .btn {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+#loginModal .btn:hover,
+#signupModal .btn:hover {
+  background-color: #45A049;
+}
+
+#loginModal p,
+#signupModal p {
+  margin-top: 10px;
+}
+
+#loginModal p a,
+#signupModal p a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
 
